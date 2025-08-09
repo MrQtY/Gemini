@@ -1,0 +1,317 @@
+:root {
+    --primary-color: #222;
+    --background-color: #000;
+    --text-color: #fff;
+    --shadow-light: rgba(255, 255, 255, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.5);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 60px;
+}
+
+.clock {
+    width: 150px;
+    height: 150px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M 50,2.5 C 23.5,2.5 2.5,23.5 2.5,50 C 2.5,76.5 23.5,97.5 50,97.5 C 76.5,97.5 97.5,76.5 97.5,50 C 97.5,23.5 76.5,2.5 50,2.5 Z M 50,7.5 C 73.5,7.5 92.5,26.5 92.5,50 C 92.5,73.5 73.5,92.5 50,92.5 C 26.5,92.5 7.5,73.5 7.5,50 C 7.5,26.5 26.5,7.5 50,7.5 Z" fill="%23333"/></svg>');
+    background-size: cover;
+}
+
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.hour {
+    width: 6px;
+    height: 40px;
+}
+
+.minute {
+    width: 4px;
+    height: 60px;
+}
+
+.second {
+    width: 2px;
+    height: 70px;
+    background-color: white;
+}
+
+.date {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+}
+
+.weather-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.weather-info {
+    margin-right: 20px;
+}
+
+.weather-condition {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.humidity-slider {
+    width: 100px;
+    height: 5px;
+    background-color: #555;
+    border-radius: 2.5px;
+    margin-bottom: 10px;
+}
+
+.humidity-level {
+    width: 75%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 2.5px;
+}
+
+.location-feels {
+    display: flex;
+    justify-content: space-between;
+}
+
+.temperature {
+    font-size: 3em;
+}
+
+.search-container {
+    margin-bottom: 40px;
+}
+
+#search-form {
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    padding: 10px 15px;
+    border-radius: 25px;
+    box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+}
+
+#search-form i {
+    margin-right: 10px;
+}
+
+#search-input {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1em;
+    width: 300px;
+}
+
+#search-input:focus {
+    outline: none;
+}
+
+#search-form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+}
+
+.links-container a {
+    color: #555;
+    font-size: 1.5em;
+    margin: 0 15px;
+    transition: color 0.3s;
+    text-shadow: 2px 2px 5px var(--shadow-dark);
+}
+
+.links-container a:hover {
+    color: #fff;
+}
+
+/* Settings Panel */
+.settings-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.3s;
+}
+
+.settings-btn:hover {
+    color: #fff;
+}
+
+.settings-panel {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Hidden by default */
+    width: 350px;
+    height: 100%;
+    background-color: #111;
+    padding: 20px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.settings-panel.open {
+    right: 0;
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.settings-header h2 {
+    margin: 0;
+}
+
+.close-btn {
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+    box-shadow: inset 2px 2px 5px var(--shadow-dark);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.color-palette {
+    display: flex;
+}
+
+.color-box {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+.color-box.selected::after {
+    content: '✔';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+    display: none;
+}
+
+.backdrop.open {
+    display: block;
+}
