@@ -56,6 +56,18 @@ body {
     border-radius: 5px;
 }
 
+.hand.hour {
+    transform: rotate(var(--rotation));
+}
+
+.hand.minute {
+    transform: rotate(var(--rotation));
+}
+
+.hand.second {
+    transform: rotate(var(--rotation));
+}
+
 .hour {
     width: 6px;
     height: 40px;

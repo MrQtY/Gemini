@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const secondsRatio = currentDate.getSeconds() / 60;
         const minutesRatio = (secondsRatio + currentDate.getMinutes()) / 60;
         const hoursRatio = (minutesRatio + currentDate.getHours()) / 12;
+        console.log('Seconds Ratio:', secondsRatio, 'Degrees:', secondsRatio * 360);
+        console.log('Minutes Ratio:', minutesRatio, 'Degrees:', minutesRatio * 360);
+        console.log('Hours Ratio:', hoursRatio, 'Degrees:', hoursRatio * 360);
         setRotation(secondHand, secondsRatio);
         setRotation(minuteHand, minutesRatio);
         setRotation(hourHand, hoursRatio);
